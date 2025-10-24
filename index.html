@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyNav - Widget de Accesibilidad | Overlay de Usabilidad Web | Herramientas de Navegación Accesible | Widget
+    de Usabilidad | Accessibility Widget Chile</title>
+  <meta name="description"
+    content="EasyNav: Widget de usabilidad web que mejora la experiencia de navegación. No es un widget de accesibilidad, es transparente sobre sus limitaciones. Overlay de herramientas para zoom, contraste y lectura.">
+  <meta name="keywords"
+    content="widget de accesibilidad, overlay, widget de usabilidad, herramientas de navegación, overlay de accesibilidad, widget web, accessibility overlay, usabilidad web, herramientas de lectura, zoom de texto, contraste web, guía de lectura, widget transparente, accessibility widget, overlay widget, herramientas de comodidad visual, widget honesto">
+  <meta name="author" content="EasyNav - Un producto de Accessibility.cl">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://easynav.accessibility.cl">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title"
+    content="EasyNav - Widget de Accesibilidad | Overlay de Usabilidad Web | Widget Transparente | Herramientas de Navegación">
+  <meta property="og:description"
+    content="Widget de usabilidad web honesto que mejora la experiencia de navegación sin falsas promesas de accesibilidad. Overlay con herramientas de zoom, contraste y lectura cómoda.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://easynav.accessibility.cl">
+  <meta property="og:image" content="https://easynav.accessibility.cl/assets/img/easynav-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="EasyNav">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+    content="EasyNav - Widget de Accesibilidad | Overlay de Usabilidad Web | Widget Transparente">
+  <meta name="twitter:description"
+    content="Widget de usabilidad web honesto que mejora la experiencia de navegación sin falsas promesas de accesibilidad. Overlay con herramientas de zoom, contraste y lectura cómoda.">
+  <meta name="twitter:image" content="https://easynav.accessibility.cl/assets/img/easynav-preview.jpg">
+  <meta name="twitter:site" content="@AccessibilityCl">
+  <meta name="twitter:creator" content="@AccessibilityCl">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="language" content="Spanish">
+  <meta name="geo.region" content="CL">
+  <meta name="geo.country" content="Chile">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="revisit-after" content="7 days">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "EasyNav",
+    "applicationCategory": "WebApplication",
+    "description": "Widget de usabilidad web que mejora la experiencia de navegación con herramientas de zoom, contraste y lectura. No es una solución de accesibilidad.",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "30000",
+      "priceCurrency": "CLP",
+      "priceValidUntil": "2025-12-31"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Accessibility.cl",
+      "url": "https://accessibility.cl"
+    },
+    "url": "https://easynav.accessibility.cl",
+    "sameAs": [
+      "https://accessibility.cl"
+    ]
+  }
+  </script>
+
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Google Calendar Appointment Scheduling begin -->
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <!-- end Google Calendar Appointment Scheduling -->
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+</head>
+
+<body>
+
+  <body>
+    <!-- Topbar de notificación -->
+    <div class="alert alert-primary alert-dismissible fade show mb-0 rounded-0" role="alert">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-center">
+          <span class="badge bg-warning text-dark me-2">Nuevo</span>
+          "EasyNav" ahora tiene sitio independiente. Accesibilidad integral se trabaja en <a
+            href="https://accessibility.cl" class="alert-link"> Accessibility.cl</a>.
+        </div>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold col-12 col-md-2" href="#">
+<img class="img-fluid" src="assets/img/logo-easynav.png" alt="logo easynav">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#que-es">Qué es</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#beneficios">Beneficios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#compatible">Compatible</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#precios">Precios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#faqs">FAQs</a>
+            </li>
+          </ul>
+          <div class="d-flex gap-2">
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <script>
+            (function() {
+              var target = document.currentScript;
+              window.addEventListener('load', function() {
+                calendar.schedulingButton.load({
+                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                  color: '#039BE5',
+                  label: 'Solicitar demo',
+                  target,
+                });
+              });
+            })();
+            </script>
+            <!-- end Google Calendar Appointment Scheduling -->
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <script>
+            (function() {
+              var target = document.currentScript;
+              window.addEventListener('load', function() {
+                calendar.schedulingButton.load({
+                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                  color: '#007bff',
+                  label: 'Hablar con nosotros',
+                  target,
+                });
+              });
+            })();
+            </script>
+            <!-- end Google Calendar Appointment Scheduling -->
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Sección Hero -->
+      <section class="hero-section bg-light py-5">
+        <div class="container py-md-5">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="hero-content">
+                <div class="hero-badge mb-3">
+                  <span class="badge bg-primary bg-gradient text-white px-3 py-2 rounded-pill">
+                    <i class="bi bi-stars me-1"></i>
+                    Navegación Fácil
+                  </span>
+                </div>
+                <h1 class="display-4 fw-bold mb-4">
+                  Navegar por internet <br>
+                  <span class="text-primary">ahora es más fácil</span>
+                </h1>
+                <p class="lead mb-4">
+                  <strong>EasyNav</strong> pone al alcance de tus usuarios herramientas simples para navegar
+                  cómodamente: texto más grande, mejor contraste, enlaces destacados y más. Perfecto para quienes
+                  prefieren una ayuda extra sin complicaciones técnicas.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                  <!-- Google Calendar Appointment Scheduling begin -->
+                  <script>
+                  (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                      calendar.schedulingButton.load({
+                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                        color: '#007bff',
+                        label: 'Probar gratis 7 días',
+                        target,
+                      });
+                    });
+                  })();
+                  </script>
+                  <!-- end Google Calendar Appointment Scheduling -->
+                  <a href="#que-es" class="btn btn-outline-primary btn-lg px-4">
+                    <i class="bi bi-info-circle me-2"></i>Ver cómo ayuda
+                  </a>
+                </div>
+                <div class="hero-stats d-flex flex-wrap gap-4 text-muted small">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle text-success me-2"></i>
+                    <span>Instalación en 2 minutos</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle text-success me-2"></i>
+                    <span>Sin conocimientos técnicos</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle text-success me-2"></i>
+                    <span>Para personas reales</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="hero-image position-relative">
+                <div class="hero-bg-blur"></div>
+                <img src="assets/img/easynav-banner.png"
+                  alt="Personas sonriendo frente a un ipad, computador, teléfono móvil" class="img-fluid rounded-4">
+              </div>
+            </div>
+          </div>
+
+          <!-- Trusted by section
+          <div class="trusted-by-section mt-5 pt-5">
+            <div class="trusted-by-container">
+              <p class="trusted-by-label">Trusted by</p>
+              <div class="trusted-logos">
+                <div class="logo-item">
+                  <div class="logo-placeholder deel">deel</div>
+                </div>
+                <div class="logo-item">
+                  <div class="logo-placeholder ki">
+                    <i class="bi bi-gem"></i>
+                  </div>
+                </div>
+                <div class="logo-item">
+                  <div class="logo-placeholder renault">RENAULT</div>
+                </div>
+                <div class="logo-item">
+                  <div class="logo-placeholder sass">
+                    <i class="bi bi-grid-3x3"></i>
+                  </div>
+                </div>
+                <div class="logo-item">
+                  <div class="logo-placeholder famosos">famosos</div>
+                </div>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </section>
+
+      <!-- Sección Qué es -->
+      <section id="que-es" class="py-5 bg-white">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12">
+              <div class="section-header mb-4">
+                <div class="section-line"></div>
+                <h2 class="display-5 fw-bold mb-4">
+                  Herramientas simples para navegar mejor
+                </h2>
+                <p class="lead text-muted">
+                  EasyNav ayuda a personas que necesitan herramientas fáciles para navegar cómodamente por internet.
+                  Funciones como texto más grande, mejor contraste y enlaces destacados, sin necesidad de saber usar
+                  configuraciones complicadas del navegador.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="feature-card h-100 bg-white rounded-4 p-4 shadow-sm">
+                <div class="feature-icon mb-4">
+                  <i class="bi bi-eye text-primary fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Más fácil de leer</h3>
+                <p class="text-muted mb-4">
+                  Texto más grande y mejor contraste con un solo clic. Perfecto para quienes necesitan una ayuda extra
+                  para leer cómodamente en pantalla.
+                </p>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                      color: '#007bff',
+                      label: 'Probar herramientas de lectura',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-card h-100 bg-white rounded-4 p-4 shadow-sm">
+                <div class="feature-icon mb-4">
+                  <i class="bi bi-hand-index text-primary fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Navegación intuitiva</h3>
+                <p class="text-muted mb-4">
+                  Enlaces destacados y herramientas para encontrar información más fácilmente. Ideal para personas que
+                  prefieren una navegación simplificada.
+                </p>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                      color: '#007bff',
+                      label: 'Probar navegación simple',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-card h-100 bg-white rounded-4 p-4 shadow-sm">
+                <div class="feature-icon mb-4">
+                  <i class="bi bi-heart text-primary fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Diseñado con cariño</h3>
+                <p class="text-muted mb-4">
+                  Pensado para personas que buscan una experiencia web más cómoda, sin complicaciones técnicas ni
+                  configuraciones difíciles.
+                </p>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                      color: '#007bff',
+                      label: 'Comenzar ahora',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Diferenciación -->
+      <section id="diferenciacion" class="py-5 bg-dark text-white">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <span class="badge bg-warning text-dark rounded-pill px-3 py-2 mb-4">LA DIFERENCIA</span>
+              <h2 class="display-5 fw-bold mb-4">
+                ¿Qué es accesibilidad y qué no lo es?
+              </h2>
+              <p class="lead text-light opacity-75">
+                Todos los overlays se ven iguales, pero hay una diferencia crucial: nosotros decimos la verdad.
+                No somos accesibilidad web, somos herramientas de navegación. Y eso está bien.
+              </p>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="comparison-grid-container">
+                <!-- Header -->
+                <div class="comparison-grid-header">
+                  <div class="comparison-aspect-header">
+                    <h4 class="fw-bold mb-0">Aspecto</h4>
+                  </div>
+                  <div class="comparison-overlay-header">
+                    <h4 class="fw-bold mb-0">Overlays Tradicionales</h4>
+                  </div>
+                  <div class="comparison-easynav-header">
+                    <h4 class="fw-bold mb-0">EasyNav</h4>
+                  </div>
+                </div>
+
+                <!-- Fila 1: ¿Para quién es? -->
+                <div class="comparison-grid-row">
+                  <div class="comparison-aspect">
+                    <h5 class="fw-bold mb-0">¿Para quién es?</h5>
+                  </div>
+                  <div class="comparison-overlay">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-x-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Dicen:</strong> "Para personas con discapacidad"<br>
+                        <small class="text-muted">En realidad no satisfacen a nadie, ni usuarios ni estándares
+                          WCAG</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-easynav">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-check-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Honesto:</strong> Personas que no saben usar su navegador<br>
+                        <small class="text-muted">Personas con baja alfabetización digital que necesitan ayuda
+                          técnica</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fila 2: ¿Qué problema resuelve? -->
+                <div class="comparison-grid-row">
+                  <div class="comparison-aspect">
+                    <h5 class="fw-bold mb-0">¿Qué problema resuelve?</h5>
+                  </div>
+                  <div class="comparison-overlay">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-x-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Falsa promesa:</strong> "Certificación WCAG y compliance"<br>
+                        <small class="text-muted">No cumplen con WCAG 2.2 y no resuelven problemas reales</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-easynav">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-check-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Problema real:</strong> "No sé agrandar texto en mi navegador"<br>
+                        <small class="text-muted">Herramientas simples para navegación básica, no accesibilidad</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fila 3: ¿Qué prometen? -->
+                <div class="comparison-grid-row">
+                  <div class="comparison-aspect">
+                    <h5 class="fw-bold mb-0">¿Qué prometen?</h5>
+                  </div>
+                  <div class="comparison-overlay">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-x-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Venden mentiras:</strong> "Tu sitio será accesible"<br>
+                        <small class="text-muted">Imposible sin cambiar código. Violan principios WCAG 2.2</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-easynav">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-check-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Promesa honesta:</strong> "Te ayudamos a navegar más fácil"<br>
+                        <small class="text-muted">No somos accesibilidad, somos una ayuda de navegación</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fila 4: Navegación por teclado -->
+                <div class="comparison-grid-row">
+                  <div class="comparison-aspect">
+                    <h5 class="fw-bold mb-0">Navegación por teclado</h5>
+                  </div>
+                  <div class="comparison-overlay">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-x-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Arruinan la experiencia:</strong> Se interponen en el flujo<br>
+                        <small class="text-muted">Personas que navegan por teclado los encuentran primero</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-easynav">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-check-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Respeta el flujo:</strong> Último en orden de tabulación<br>
+                        <small class="text-muted">No interrumpe a usuarios que navegan por teclado</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fila 5: Lector de pantalla -->
+                <div class="comparison-grid-row">
+                  <div class="comparison-aspect">
+                    <h5 class="fw-bold mb-0">Lector de pantalla</h5>
+                  </div>
+                  <div class="comparison-overlay">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-x-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Interfieren:</strong> Incluyen lectores de pantalla básicos<br>
+                        <small class="text-muted">Personas ciegas ya tienen el suyo configurado y personalizado</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-easynav">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-check-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Respeta las herramientas:</strong> No incluye lector de pantalla<br>
+                        <small class="text-muted">No interferimos con tecnologías de apoyo existentes</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fila 6: ¿Es esto accesibilidad? -->
+                <div class="comparison-grid-row">
+                  <div class="comparison-aspect">
+                    <h5 class="fw-bold mb-0">¿Es esto accesibilidad?</h5>
+                  </div>
+                  <div class="comparison-overlay">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-x-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Venden mentiras:</strong> "Somos accesibilidad web"<br>
+                        <small class="text-muted">No cumplen WCAG 2.2. Son contrarios a los principios de
+                          accesibilidad</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-easynav">
+                    <div class="d-flex align-items-start">
+                      <i class="bi bi-info-circle me-2 mt-1 flex-shrink-0"></i>
+                      <div>
+                        <strong>Transparencia total:</strong> "NO somos accesibilidad web"<br>
+                        <small class="text-muted">Somos herramientas de navegación para alfabetización digital
+                          baja</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-primary mt-4 mb-0">
+                  <div class="d-flex align-items-start">
+                    <i class="bi bi-info-circle fs-4 me-3 mt-1"></i>
+                    <div>
+                      <strong>¿Necesitas accesibilidad real para personas con discapacidad?</strong><br>
+                      <p class="mb-2">La accesibilidad requiere cambios en el código, estructura y diseño de tu sitio
+                        web. No se puede "arreglar" con un widget.</p>
+                      <p class="mb-0">Para auditorías WCAG 2.2, capacitación y remediación técnica profesional →
+                        <a href="https://accessibility.cl" class="alert-link fw-bold"
+                          target="_blank">Accessibility.cl</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Beneficios -->
+      <section id="beneficios" class="py-5 bg-light">
+        <div class="container py-md-5">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="benefits-content">
+                <span class="badge bg-primary text-white rounded-pill px-3 py-2 mb-4">PARA TODOS</span>
+                <h2 class="display-5 fw-bold mb-4">
+                  Navegación web más amigable
+                </h2>
+                <p class="lead text-muted mb-5">
+                  EasyNav ayuda a personas con baja alfabetización digital que necesitan herramientas simples y visibles
+                  para navegar cómodamente por internet.
+                </p>
+
+                <div class="benefits-list">
+                  <div class="benefit-item mb-4 d-flex align-items-start">
+                    <div class="benefit-icon me-3 mt-1">
+                      <i class="bi bi-people-fill text-primary fs-4"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold mb-2">
+                        Para personas que no saben usar su navegador
+                      </h4>
+                      <p class="text-muted mb-0">
+                        Personas con baja alfabetización digital que no conocen las funciones del navegador como zoom,
+                        modo oscuro o configuraciones de accesibilidad.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="benefit-item mb-4 d-flex align-items-start">
+                    <div class="benefit-icon me-3 mt-1">
+                      <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold mb-2">
+                        Herramientas simples y visibles
+                      </h4>
+                      <p class="text-muted mb-0">
+                        "No sé agrandar texto" o "¿Dónde está el zoom?" - EasyNav pone estas herramientas al alcance con
+                        un botón grande y claro.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="benefit-item mb-4 d-flex align-items-start">
+                    <div class="benefit-icon me-3 mt-1">
+                      <i class="bi bi-heart-fill text-primary fs-4"></i>
+                    </div>
+                    <div>
+                      <h4 class="fw-bold mb-2">
+                        Sin juzgar la falta de conocimiento técnico
+                      </h4>
+                      <p class="text-muted mb-0">
+                        Una capa de experiencia que acerca las herramientas del navegador a personas que no las conocen,
+                        sin complicaciones ni menús ocultos.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 p-3 bg-white rounded-3 border-start border-primary border-3">
+                    <p class="text-muted mb-0 small">
+                      <i class="bi bi-info-circle text-primary me-2"></i>
+                      <strong>Importante:</strong> EasyNav es una herramienta de usabilidad para baja alfabetización
+                      digital, no es accesibilidad web para personas con discapacidad.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="benefits-image ">
+                <img src="assets/img/banner-easynav-2-vertical.png" alt=" " class="img-fluid rounded-4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Público Real -->
+      <section id="publico-real" class="py-5 bg-light">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <span class="badge bg-primary text-white rounded-pill px-3 py-2 mb-4">PARA PERSONAS REALES</span>
+              <h2 class="display-5 fw-bold mb-4">
+                EasyNav está pensado para personas que necesitan apoyo digital
+              </h2>
+              <p class="lead text-muted">
+                No todos saben usar las funciones avanzadas del navegador. Algunas personas necesitan herramientas
+                simples y visibles.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="user-type-card bg-white rounded-4 p-4 h-100 text-center shadow-sm">
+                <div class="user-icon mb-3">
+                  <i class="bi bi-person-fill text-primary fs-1"></i>
+                </div>
+                <h4 class="fw-bold mb-3 text-primary">Baja Experiencia Digital</h4>
+                <p class="text-muted mb-3">
+                  "No saben que pueden hacer zoom con Ctrl+Plus"
+                </p>
+                <div class="solution-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary fw-bold">
+                    → EasyNav les da un botón grande y claro
+                  </small>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-md-6 col-lg-4">
+              <div class="user-type-card bg-white rounded-4 p-4 h-100 text-center shadow-sm">
+                <div class="user-icon mb-3">
+                  <i class="bi bi-eye text-primary fs-1"></i>
+                </div>
+                <h4 class="fw-bold mb-3 text-primary">Vista Cansada</h4>
+                <p class="text-muted mb-3">
+                  "Necesitan texto más grande pero no saben cómo"
+                </p>
+                <div class="solution-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary fw-bold">
+                    → EasyNav les facilita ajustar tamaño sin buscar
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="user-type-card bg-white rounded-4 p-4 h-100 text-center shadow-sm">
+                <div class="user-icon mb-3">
+                  <i class="bi bi-compass text-primary fs-1"></i>
+                </div>
+                <h4 class="fw-bold mb-3 text-primary">Navegación Confusa</h4>
+                <p class="text-muted mb-3">
+                  "Usuarios se pierden en sitios con muchos enlaces"
+                </p>
+                <div class="solution-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary fw-bold">
+                    → EasyNav resalta lo importante
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-12 text-center">
+              <div class="alert alert-info d-inline-flex align-items-center">
+                <i class="bi bi-lightbulb me-2"></i>
+                <span><strong>Herramientas simples para necesidades reales</strong> - Sin juzgar la falta de
+                  conocimiento técnico</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Compatible -->
+      <section id="compatible" class="py-5 bg-white">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="display-5 fw-bold mb-4">Herramientas simples para necesidades reales</h2>
+              <p class="lead text-muted">
+                Cada herramienta resuelve un problema específico que las personas enfrentan al navegar.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4 mb-5">
+            <div class="col-md-6 col-lg-4">
+              <div class="tool-card bg-white rounded-4 p-4 h-100 shadow-sm">
+                <div class="tool-icon mb-3">
+                  <i class="bi bi-cursor text-primary fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Cursor Grande</h4>
+                <p class="text-muted mb-3">
+                  Para quienes pierden el cursor en pantalla
+                </p>
+                <div class="problem-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary">
+                    <strong>Problema:</strong> "¿Dónde está el cursor?"
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="tool-card bg-white rounded-4 p-4 h-100 shadow-sm">
+                <div class="tool-icon mb-3">
+                  <i class="bi bi-link-45deg text-primary fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Enlaces Destacados</h4>
+                <p class="text-muted mb-3">
+                  Para quienes no ven bien dónde hacer clic
+                </p>
+                <div class="problem-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary">
+                    <strong>Problema:</strong> "¿Dónde puedo hacer clic?"
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="tool-card bg-white rounded-4 p-4 h-100 shadow-sm">
+                <div class="tool-icon mb-3">
+                  <i class="bi bi-circle-half text-primary fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Modo Contraste</h4>
+                <p class="text-muted mb-3">
+                  Para quienes no ven bien con colores claros
+                </p>
+                <div class="problem-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary">
+                    <strong>Problema:</strong> "No distingo bien los colores"
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="tool-card bg-white rounded-4 p-4 h-100 shadow-sm">
+                <div class="tool-icon mb-3">
+                  <i class="bi bi-fonts text-primary fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Texto Grande</h4>
+                <p class="text-muted mb-3">
+                  Para quienes no saben usar zoom del navegador
+                </p>
+                <div class="problem-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary">
+                    <strong>Problema:</strong> "No sé hacer zoom"
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="tool-card bg-white rounded-4 p-4 h-100 shadow-sm">
+                <div class="tool-icon mb-3">
+                  <i class="bi bi-text-paragraph text-primary fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Espaciado Amplio</h4>
+                <p class="text-muted mb-3">
+                  Para quienes necesitan más espacio entre líneas
+                </p>
+                <div class="problem-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary">
+                    <strong>Problema:</strong> "Las líneas están muy juntas"
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="tool-card bg-white rounded-4 p-4 h-100 shadow-sm">
+                <div class="tool-icon mb-3">
+                  <i class="bi bi-type text-primary fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Tipografía Clara</h4>
+                <p class="text-muted mb-3">
+                  Para quienes necesitan letras más legibles
+                </p>
+                <div class="problem-badge bg-primary bg-opacity-10 rounded-3 p-2">
+                  <small class="text-primary">
+                    <strong>Problema:</strong> "No distingo bien las letras"
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!--compatible con todo-->
+      <section class="compatibilidad py-5 bg-light">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <div class="section-line mx-auto mb-4"></div>
+              <span class="badge bg-primary text-white rounded-pill px-3 py-2 mb-4">COMPATIBLE CON TODO</span>
+              <h2 class="display-5 fw-bold mb-4">Funciona en cualquier plataforma web</h2>
+              <p class="lead text-muted">
+                EasyNav se instala fácilmente en más de 18 plataformas diferentes. Solo necesitas copiar y pegar un
+                código pequeño - sin complicaciones técnicas.
+              </p>
+            </div>
+          </div>
+          <div class="carrusel-easynav-container">
+            <div class="carrusel-easynav-track" id="carouselTrack">
+              <!-- CMS más populares -->
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-wordpress carrusel-easynav-logo carrusel-easynav-logo-wordpress"></i>
+                <span class="carrusel-easynav-label">WordPress</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-shopify carrusel-easynav-logo carrusel-easynav-logo-shopify"></i>
+                <span class="carrusel-easynav-label">Shopify</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-wix carrusel-easynav-logo carrusel-easynav-logo-wix"></i>
+                <span class="carrusel-easynav-label">Wix</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-squarespace carrusel-easynav-logo carrusel-easynav-logo-squarespace"></i>
+                <span class="carrusel-easynav-label">Squarespace</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-weebly carrusel-easynav-logo carrusel-easynav-logo-weebly"></i>
+                <span class="carrusel-easynav-label">Weebly</span>
+              </div>
+
+              <!-- E-commerce especializado -->
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-store carrusel-easynav-logo carrusel-easynav-logo-woocommerce"></i>
+                <span class="carrusel-easynav-label">WooCommerce</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-shopping-cart carrusel-easynav-logo carrusel-easynav-logo-prestashop"></i>
+                <span class="carrusel-easynav-label">PrestaShop</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-magento carrusel-easynav-logo carrusel-easynav-logo-magento"></i>
+                <span class="carrusel-easynav-label">Magento</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-cart-plus carrusel-easynav-logo carrusel-easynav-logo-prestashop"></i>
+                <span class="carrusel-easynav-label">Jumpseller</span>
+              </div>
+
+              <!-- CMS técnicos -->
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-drupal carrusel-easynav-logo carrusel-easynav-logo-drupal"></i>
+                <span class="carrusel-easynav-label">Drupal</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-joomla carrusel-easynav-logo carrusel-easynav-logo-joomla"></i>
+                <span class="carrusel-easynav-label">Joomla</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-typo3 carrusel-easynav-logo carrusel-easynav-logo-typo3"></i>
+                <span class="carrusel-easynav-label">TYPO3</span>
+              </div>
+
+              <!-- Plataformas modernas -->
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-blog carrusel-easynav-logo carrusel-easynav-logo-ghost"></i>
+                <span class="carrusel-easynav-label">Ghost</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-code carrusel-easynav-logo carrusel-easynav-logo-webflow"></i>
+                <span class="carrusel-easynav-label">Webflow</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-cube carrusel-easynav-logo carrusel-easynav-logo-contentful"></i>
+                <span class="carrusel-easynav-label">Craft CMS</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-pencil-alt carrusel-easynav-logo carrusel-easynav-logo-contentful-blue"></i>
+                <span class="carrusel-easynav-label">Contentful</span>
+              </div>
+
+              <!-- HTML/CSS personalizado -->
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-laptop-code carrusel-easynav-logo carrusel-easynav-logo-expressionengine"></i>
+                <span class="carrusel-easynav-label">HTML Custom</span>
+              </div>
+
+              <!-- Duplicado para efecto infinito -->
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-wordpress carrusel-easynav-logo carrusel-easynav-logo-wordpress"></i>
+                <span class="carrusel-easynav-label">WordPress</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-shopify carrusel-easynav-logo carrusel-easynav-logo-shopify"></i>
+                <span class="carrusel-easynav-label">Shopify</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-wix carrusel-easynav-logo carrusel-easynav-logo-wix"></i>
+                <span class="carrusel-easynav-label">Wix</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-squarespace carrusel-easynav-logo carrusel-easynav-logo-squarespace"></i>
+                <span class="carrusel-easynav-label">Squarespace</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-weebly carrusel-easynav-logo carrusel-easynav-logo-weebly"></i>
+                <span class="carrusel-easynav-label">Weebly</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-store carrusel-easynav-logo carrusel-easynav-logo-woocommerce"></i>
+                <span class="carrusel-easynav-label">WooCommerce</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fas fa-shopping-cart carrusel-easynav-logo carrusel-easynav-logo-prestashop"></i>
+                <span class="carrusel-easynav-label">PrestaShop</span>
+              </div>
+              <div class="carrusel-easynav-item">
+                <i class="fab fa-magento carrusel-easynav-logo carrusel-easynav-logo-magento"></i>
+                <span class="carrusel-easynav-label">Magento</span>
+              </div>
+            </div>
+
+            <div class="carrusel-easynav-controls">
+              <button class="carrusel-easynav-btn" onclick="toggleCarousel()" id="playPauseBtn">
+                <i class="bi bi-pause-fill"></i>
+              </button>
+              <button class="carrusel-easynav-btn" onclick="resetCarousel()">
+                <i class="bi bi-arrow-clockwise"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-12 text-center">
+              <p class="text-muted mb-4">
+                <strong>¿Tu plataforma no está aquí?</strong> Si tu sitio web permite agregar código HTML personalizado,
+                EasyNav funcionará perfectamente.
+              </p>
+
+              <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                  <div
+                    class="compatibility-feature d-flex align-items-center justify-content-center p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-code-slash text-primary fs-4 me-3"></i>
+                    <div class="text-start">
+                      <h6 class="fw-bold mb-1">Solo un código</h6>
+                      <small class="text-muted">Copiar y pegar</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div
+                    class="compatibility-feature d-flex align-items-center justify-content-center p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-clock text-primary fs-4 me-3"></i>
+                    <div class="text-start">
+                      <h6 class="fw-bold mb-1">2 minutos</h6>
+                      <small class="text-muted">Tiempo de instalación</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div
+                    class="compatibility-feature d-flex align-items-center justify-content-center p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-check-circle text-success fs-4 me-3"></i>
+                    <div class="text-start">
+                      <h6 class="fw-bold mb-1">Sin cambios</h6>
+                      <small class="text-muted">No altera tu diseño</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                      color: '#007bff',
+                      label: 'Comenzar instalación',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Sección Estadísticas COMENTADA - Resultados medibles que importan -->
+      <!--
+      <section class="py-5 bg-light" id="estadisticas">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <div class="section-line mx-auto mb-4"></div>
+              <span class="badge bg-success text-white rounded-pill px-3 py-2 mb-4">RESULTADOS REALES</span>
+              <h2 class="display-5 fw-bold mb-4">Resultados medibles que importan</h2>
+              <p class="lead text-muted">
+                Empresas chilenas usan EasyNav para mejorar la experiencia de navegación mientras desarrollan accesibilidad real. Datos verificados de usuarios reales.
+              </p>
+            </div>
+          </div>
+
+          <!-- Métricas principales con gráficos -->
+          <div class="row g-4 mb-5">
+            <!-- Satisfacción de usuarios -->
+            <div class="col-lg-4 col-md-6">
+              <div class="stats-card bg-white rounded-4 p-4 shadow-sm h-100">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <h5 class="fw-bold mb-1">Satisfacción de usuarios</h5>
+                    <p class="text-muted small mb-0">Reportan navegación más cómoda</p>
+                  </div>
+                  <i class="bi bi-heart-fill text-danger fs-2"></i>
+                </div>
+                <div class="chart-container mb-3" style="position: relative; height: 180px;">
+                  <canvas id="satisfactionChart"></canvas>
+                </div>
+                <div class="text-center">
+                  <span class="display-6 fw-bold text-success">85%</span>
+                  <p class="text-muted small mb-0">de 127 usuarios encuestados</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tiempo de adopción -->
+            <div class="col-lg-4 col-md-6">
+              <div class="stats-card bg-white rounded-4 p-4 shadow-sm h-100">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <h5 class="fw-bold mb-1">Tiempo de adopción</h5>
+                    <p class="text-muted small mb-0">Usuarios activos por semana</p>
+                  </div>
+                  <i class="bi bi-graph-up text-primary fs-2"></i>
+                </div>
+                <div class="chart-container mb-3" style="position: relative; height: 180px;">
+                  <canvas id="adoptionChart"></canvas>
+                </div>
+                <div class="text-center">
+                  <span class="display-6 fw-bold text-primary">92%</span>
+                  <p class="text-muted small mb-0">siguen usando después de 1 mes</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instalaciones por plataforma -->
+            <div class="col-lg-4 col-md-12">
+              <div class="stats-card bg-white rounded-4 p-4 shadow-sm h-100">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <h5 class="fw-bold mb-1">Instalaciones activas</h5>
+                    <p class="text-muted small mb-0">Por tipo de plataforma</p>
+                  </div>
+                  <i class="bi bi-globe text-warning fs-2"></i>
+                </div>
+                <div class="chart-container mb-3" style="position: relative; height: 180px;">
+                  <canvas id="platformChart"></canvas>
+                </div>
+                <div class="text-center">
+                  <span class="display-6 fw-bold text-warning">30+</span>
+                  <p class="text-muted small mb-0">sitios web activos en Chile</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Métricas adicionales -->
+          <div class="row g-4 mb-5">
+            <div class="col-md-3 col-6">
+              <div class="metric-item text-center p-3 bg-white rounded-3 shadow-sm">
+                <i class="bi bi-clock text-info fs-1 mb-2"></i>
+                <div class="h3 fw-bold text-info mb-1">2min</div>
+                <p class="small text-muted mb-0">Tiempo promedio de instalación</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="metric-item text-center p-3 bg-white rounded-3 shadow-sm">
+                <i class="bi bi-speedometer2 text-success fs-1 mb-2"></i>
+                <div class="h3 fw-bold text-success mb-1">0.1s</div>
+                <p class="small text-muted mb-0">Tiempo de carga del widget</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="metric-item text-center p-3 bg-white rounded-3 shadow-sm">
+                <i class="bi bi-shield-check text-primary fs-1 mb-2"></i>
+                <div class="h3 fw-bold text-primary mb-1">99.9%</div>
+                <p class="small text-muted mb-0">Tiempo de disponibilidad</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="metric-item text-center p-3 bg-white rounded-3 shadow-sm">
+                <i class="bi bi-people text-purple fs-1 mb-2"></i>
+                <div class="h3 fw-bold text-purple mb-1">1.2k</div>
+                <p class="small text-muted mb-0">Usuarios únicos mensuales</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial y CTA -->
+          <div class="row align-items-center">
+            
+            <div class="col-lg-12 text-lg-end mt-4 mx-auto d-flex justify-content-center">
+              <!-- Google Calendar Appointment Scheduling begin -->
+              <script>
+              (function() {
+                var target = document.currentScript;
+                window.addEventListener('load', function() {
+                  calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                    color: '#007bff',
+                    label: 'Ver estos resultados en mi sitio',
+                    target,
+                  });
+                });
+              })();
+              </script>
+              <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+          </div>
+        </div>
+      </section>
+      -->
+
+      <!-- Sección Precios -->
+      <section id="precios" class="py-5 bg-white">
+        <div class="container py-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <div class="section-line mx-auto mb-4"></div>
+              <span class="badge text-white rounded-pill px-3 py-2 mb-4" style="background-color: #6366f1;">PLANES SIMPLES</span>
+              <h2 class="display-5 fw-bold mb-4">Inversión en personas, no en tecnología</h2>
+              <p class="lead text-muted">
+                Elige el plan que mejor se adapte al tamaño de tu sitio web. Sin compromisos anuales, sin letra pequeña.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+            <!-- Plan Básico -->
+            <div class="col-lg-4 col-md-6">
+              <div class="pricing-plan bg-white rounded-4 p-4 shadow-sm border h-100">
+                <div class="plan-header text-center mb-4">
+                  <h3 class="plan-name h5 fw-bold text-muted mb-2">Plan Básico</h3>
+                  <div class="plan-price">
+                    <span class="price-amount display-5 fw-bold text-dark">$30</span>
+                    <span class="price-currency text-muted">USD/mes</span>
+                  </div>
+                  <p class="plan-description text-muted small mt-2">Perfecto para sitios web pequeños</p>
+                </div>
+
+                <div class="plan-features mb-4">
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Hasta <strong>50 páginas</strong></span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Todas las herramientas incluidas</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Instalación en 2 minutos</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Soporte por email</span>
+                  </div>
+                </div>
+
+                <div class="plan-cta mt-auto">
+                  <!-- Google Calendar Appointment Scheduling begin -->
+                  <script>
+                  (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                      calendar.schedulingButton.load({
+                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                        color: '#007bff',
+                        label: 'Comenzar plan básico',
+                        target,
+                      });
+                    });
+                  })();
+                  </script>
+                  <!-- end Google Calendar Appointment Scheduling -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Plan Medio (Más Popular) -->
+            <div class="col-lg-4 col-md-6">
+              <div class="pricing-plan text-white rounded-4 p-4 shadow-lg border-0 h-100 position-relative" style="background-color: #6366f1;">
+                <div class="popular-badge position-absolute top-0 start-50 translate-middle">
+                  <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">MÁS POPULAR</span>
+                </div>
+                
+                <div class="plan-header text-center mb-4 mt-3">
+                  <h3 class="plan-name h5 fw-bold text-white mb-2">Plan Medio</h3>
+                  <div class="plan-price">
+                    <span class="price-amount display-5 fw-bold text-white">$50</span>
+                    <span class="price-currency text-white opacity-75">USD/mes</span>
+                  </div>
+                  <p class="plan-alt-price text-white opacity-75 small">o $50.000 CLP/mes</p>
+                  <p class="plan-description text-white opacity-75 small mt-2">Ideal para la mayoría de sitios web</p>
+                </div>
+
+                <div class="plan-features mb-4">
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                    <span class="text-white">Hasta <strong>100 páginas</strong></span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                    <span class="text-white">Todas las herramientas incluidas</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                    <span class="text-white">Instalación en 2 minutos</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                    <span class="text-white">Soporte prioritario</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                    <span class="text-white">Reportes de uso</span>
+                  </div>
+                </div>
+
+                <div class="plan-cta mt-auto">
+                  <!-- Google Calendar Appointment Scheduling begin -->
+                  <script>
+                  (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                      calendar.schedulingButton.load({
+                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                        color: '#ffc107',
+                        label: 'Comenzar plan medio',
+                        target,
+                      });
+                    });
+                  })();
+                  </script>
+                  <!-- end Google Calendar Appointment Scheduling -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Plan Enterprise -->
+            <div class="col-lg-4 col-md-6">
+              <div class="pricing-plan bg-white rounded-4 p-4 shadow-sm border h-100">
+                <div class="plan-header text-center mb-4">
+                  <h3 class="plan-name h5 fw-bold text-muted mb-2">Plan Enterprise</h3>
+                  <div class="plan-price">
+                    <span class="price-amount display-5 fw-bold text-dark">$100k</span>
+                    <span class="price-currency text-muted">CLP/mes</span>
+                  </div>
+                  <p class="plan-description text-muted small mt-2">Para sitios web grandes y empresas</p>
+                </div>
+
+                <div class="plan-features mb-4">
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Hasta <strong>200 páginas</strong></span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Todas las herramientas incluidas</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Instalación personalizada</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Soporte premium 24/7</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Reportes avanzados</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success me-3"></i>
+                    <span class="text-muted">Gestión de cuenta dedicada</span>
+                  </div>
+                </div>
+
+                <div class="plan-cta mt-auto">
+                  <!-- Google Calendar Appointment Scheduling begin -->
+                  <script>
+                  (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                      calendar.schedulingButton.load({
+                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                        color: '#007bff',
+                        label: 'Contactar para Enterprise',
+                        target,
+                      });
+                    });
+                  })();
+                  </script>
+                  <!-- end Google Calendar Appointment Scheduling -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Información adicional -->
+          <div class="row mt-5">
+            <div class="col-12">
+              <div class="pricing-info bg-light rounded-4 p-4">
+                <div class="row g-4 text-center">
+                  <div class="col-md-3">
+                    <i class="bi bi-credit-card fs-3 mb-2" style="color: #6366f1;"></i>
+                    <h6 class="fw-bold mb-1">Sin compromiso anual</h6>
+                    <small class="text-muted">Cancela cuando quieras</small>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="bi bi-shield-check text-success fs-3 mb-2"></i>
+                    <h6 class="fw-bold mb-1">7 días gratis</h6>
+                    <small class="text-muted">Prueba sin riesgo</small>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="bi bi-arrow-repeat text-info fs-3 mb-2"></i>
+                    <h6 class="fw-bold mb-1">Cambio de plan</h6>
+                    <small class="text-muted">Sube o baja cuando necesites</small>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="bi bi-headset text-warning fs-3 mb-2"></i>
+                    <h6 class="fw-bold mb-1">Soporte incluido</h6>
+                    <small class="text-muted">En todos los planes</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ sobre precios -->
+          <div class="row mt-5">
+            <div class="col-12 text-center">
+              <h4 class="fw-bold mb-3">¿Qué incluye cada plan?</h4>
+              <p class="text-muted mb-4">
+                Todos los planes incluyen las mismas herramientas de navegación. La diferencia está en la cantidad de páginas y el nivel de soporte.
+              </p>
+              <div class="d-flex gap-3 justify-content-center">
+                <a href="#faqs" class="btn rounded-pill px-4" style="border: 1px solid #6366f1; color: #6366f1;">
+                  <i class="bi bi-question-circle me-2"></i>Ver más preguntas
+                </a>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                      color: '#6366f1',
+                      label: 'Hablar con nosotros',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección FAQs -->
+      <section id="faqs" class="py-5 bg-light">
+        <div class="container py-md-5">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="section-line mb-4"></div>
+              <h2 class="display-5 fw-bold mb-4">Dudas comunes</h2>
+
+              <div class="accordion" id="faqAccordion">
+                <div class="accordion-item border-0 rounded-3 mb-3">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button fw-bold fs-5 rounded-3" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq1">
+                      ¿Para qué tipo de personas está pensado EasyNav?
+                    </button>
+                  </h2>
+                  <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      EasyNav está diseñado para ayudar a personas que buscan herramientas simples para navegar más
+                      cómodamente: <strong>personas con baja alfabetización digital</strong> que necesitan herramientas
+                      más visibles, <strong>personas con
+                        poca experiencia digital</strong> que no saben usar las configuraciones del navegador,
+                      <strong>usuarios que trabajan muchas horas en pantalla</strong> y necesitan ajustes rápidos, o
+                      cualquier persona que simplemente quiera una experiencia web más cómoda.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0 rounded-3 mb-3">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold fs-5 rounded-3" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq2">
+                      ¿Qué herramientas incluye para navegar mejor?
+                    </button>
+                  </h2>
+                  <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      EasyNav incluye herramientas fáciles de usar como: <strong>agrandar cursor</strong> para
+                      encontrarlo más fácil, <strong>resaltar enlaces</strong> para verlos mejor, <strong>modo
+                        contraste</strong> para leer con más comodidad, <strong>cambiar tamaño de texto</strong>,
+                      <strong>espaciado entre líneas</strong> para leer mejor, <strong>alinear texto</strong> a la
+                      izquierda, <strong>tipografía amigable</strong> y <strong>revelar descripciones de
+                        imágenes</strong>. Todo con un solo clic.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0 rounded-3 mb-3">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold fs-5 rounded-3" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq3">
+                      ¿Es difícil de instalar en mi sitio web?
+                    </button>
+                  </h2>
+                  <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      Para nada. EasyNav funciona en cualquier sitio web: WordPress, Shopify, Wix, Squarespace y sitios
+                      web hechos a medida. La instalación es muy simple: nosotros te damos un código pequeño que solo
+                      hay que copiar y pegar en tu sitio. No necesitas ser técnico ni cambiar nada de tu diseño.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0 rounded-3 mb-3">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold fs-5 rounded-3" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq4">
+                      ¿Mis usuarios necesitan aprender a usarlo?
+                    </button>
+                  </h2>
+                  <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      No, EasyNav está diseñado para ser súper intuitivo. Aparece como un botón pequeño en tu sitio web,
+                      y cuando alguien lo toca, se abren las herramientas con íconos claros y fáciles de entender. Cada
+                      función se activa con un solo clic, sin menús complicados.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0 rounded-3 mb-3">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold fs-5 rounded-3" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq5">
+                      ¿Cómo funcionan los precios?
+                    </button>
+                  </h2>
+                  <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      Los precios son simples y transparentes, basados en el tamaño de tu sitio web:
+                      <ul class="mt-2">
+                        <li><strong>Sitio pequeño:</strong> Hasta 10 páginas - $30.000 CLP/mes</li>
+                        <li><strong>Sitio mediano:</strong> Hasta 70 páginas - $70.000 CLP/mes</li>
+                        <li><strong>Sitio grande:</strong> Hasta 100 páginas - $100.000 CLP/mes</li>
+                        <li><strong>Sitio muy grande:</strong> Más de 100 páginas - Te cotizamos</li>
+                      </ul>
+                      Aceptamos transferencias bancarias y otros métodos de pago en Chile. Sin compromisos anuales ni
+                      letra pequeña.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Contacto -->
+      <section id="contacto" class="py-5 bg-white">
+        <div class="container py-md-5">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="contact-content">
+                <div class="section-line mb-4"></div>
+                <h2 class="display-5 fw-bold mb-4">
+                  Mejora la navegación<br>de tu sitio web
+                </h2>
+                <p class="lead text-muted mb-4">
+                  Conecta con herramientas de usabilidad de EasyNav para predecir mejor experiencia de navegación con
+                  análisis de comportamiento web.
+                </p>
+
+                <div class="features-tags mb-5">
+                  <span class="badge bg-light text-dark border rounded-pill px-3 py-2 me-2 mb-2">EasyNav</span>
+                  <span class="badge bg-light text-dark border rounded-pill px-3 py-2 me-2 mb-2">Usabilidad</span>
+                  <span class="badge bg-light text-dark border rounded-pill px-3 py-2 me-2 mb-2">Navegación</span>
+                  <span class="badge bg-light text-dark border rounded-pill px-3 py-2 me-2 mb-2">UX</span>
+                  <span class="badge bg-light text-dark border rounded-pill px-3 py-2 me-2 mb-2">Widget</span>
+                </div>
+
+                <div class="d-flex gap-3">
+                  <a href="https://accessibility.cl/contacto" class="btn btn-outline-primary rounded-pill px-4">Chat en
+                    vivo</a>
+                  <!-- Google Calendar Appointment Scheduling begin -->
+                  <script>
+                  (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                      calendar.schedulingButton.load({
+                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ37--F2Yqt951-yqz0m0eEsd5Z9rZqkui4nVfx2SZFFZBdJ0E75OJEfKawUWzhcG2xca85wCMi9?gv=true',
+                        color: '#007bff',
+                        label: 'COMENZAR',
+                        target,
+                      });
+                    });
+                  })();
+                  </script>
+                  <!-- end Google Calendar Appointment Scheduling -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="contact-image benefits-image">
+                <img src="assets/img/persona-usando-easynav.png" alt="Persona usando easynav en su sitio web"
+                  class="img-fluid rounded-4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+      <div class="container py-md-4">
+        <div class="row g-4 mb-5">
+          <div class="col-lg-3">
+            <div class="footer-brand mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="brand-icon me-2"></div>
+                <span class="h4 fw-bold mb-0">EasyNav</span>
+              </div>
+              <p class="text-light opacity-75 small">
+                Navegación web más fácil y cómoda para todos.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="fw-bold mb-3">PRODUCTO</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#que-es" class="text-light opacity-75 text-decoration-none small">Qué es</a>
+              </li>
+              <li class="mb-2"><a href="#beneficios"
+                  class="text-light opacity-75 text-decoration-none small">Beneficios</a></li>
+              <li class="mb-2"><a href="#compatible"
+                  class="text-light opacity-75 text-decoration-none small">Compatible</a></li>
+              <li class="mb-2"><a href="#precios" class="text-light opacity-75 text-decoration-none small">Precios</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="fw-bold mb-3">EMPRESA</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="https://accessibility.cl"
+                  class="text-light opacity-75 text-decoration-none small">Accessibility.cl</a></li>
+              <li class="mb-2"><a href="https://accessibility.cl/blog"
+                  class="text-light opacity-75 text-decoration-none small">Blog</a></li>
+              <li class="mb-2"><a href="https://accessibility.cl/contacto"
+                  class="text-light opacity-75 text-decoration-none small">Contacto</a></li>
+              <li class="mb-2"><a href="https://accessibility.cl/equipo"
+                  class="text-light opacity-75 text-decoration-none small">Equipo</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="fw-bold mb-3">RECURSOS</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#faqs" class="text-light opacity-75 text-decoration-none small">FAQs</a></li>
+              <li class="mb-2"><a href="https://accessibility.cl/recursos"
+                  class="text-light opacity-75 text-decoration-none small">Documentación</a></li>
+              <li class="mb-2"><a href="https://accessibility.cl/contacto"
+                  class="text-light opacity-75 text-decoration-none small">Soporte</a></li>
+              <li class="mb-2"><a href="https://accessibility.cl/estado"
+                  class="text-light opacity-75 text-decoration-none small">Estado</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3">SÍGUENOS</h5>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-light opacity-75"><i class="bi bi-twitter fs-4"></i></a>
+              <a href="#" class="text-light opacity-75"><i class="bi bi-linkedin fs-4"></i></a>
+              <a href="#" class="text-light opacity-75"><i class="bi bi-facebook fs-4"></i></a>
+              <a href="#" class="text-light opacity-75"><i class="bi bi-instagram fs-4"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-top border-secondary pt-4">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="d-flex gap-4 text-light opacity-75 small">
+                <a href="https://accessibility.cl/privacidad"
+                  class="text-light opacity-75 text-decoration-none">Política de privacidad</a>
+                <a href="https://accessibility.cl/terminos" class="text-light opacity-75 text-decoration-none">Términos
+                  de servicio</a>
+                <a href="https://accessibility.cl/cookies"
+                  class="text-light opacity-75 text-decoration-none">Cookies</a>
+              </div>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="text-light opacity-75 small mb-0">
+                © 2025 EasyNav. Todos los derechos reservados.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Charts Scripts -->
+    <script>
+      // Configuración común para todos los gráficos
+      Chart.defaults.font.family = "'Inter', sans-serif";
+      Chart.defaults.font.size = 12;
+      Chart.defaults.plugins.legend.display = false;
+
+      // Gráfico de Satisfacción (Donut)
+      const satisfactionCtx = document.getElementById('satisfactionChart').getContext('2d');
+      new Chart(satisfactionCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Satisfechos', 'Neutros', 'Insatisfechos'],
+          datasets: [{
+            data: [85, 12, 3],
+            backgroundColor: ['#28a745', '#ffc107', '#dc3545'],
+            borderWidth: 0,
+            cutout: '70%'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+              labels: {
+                usePointStyle: true,
+                padding: 15,
+                font: { size: 11 }
+              }
+            }
+          }
+        }
+      });
+
+      // Gráfico de Adopción (Línea)
+      const adoptionCtx = document.getElementById('adoptionChart').getContext('2d');
+      new Chart(adoptionCtx, {
+        type: 'line',
+        data: {
+          labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'],
+          datasets: [{
+            label: 'Usuarios activos',
+            data: [65, 78, 88, 92],
+            borderColor: '#007bff',
+            backgroundColor: 'rgba(0, 123, 255, 0.1)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 6,
+            pointHoverRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              grid: { display: false },
+              ticks: { callback: function(value) { return value + '%'; } }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+
+      // Gráfico de Plataformas (Barras horizontales)
+      const platformCtx = document.getElementById('platformChart').getContext('2d');
+      new Chart(platformCtx, {
+        type: 'bar',
+        data: {
+          labels: ['WordPress', 'Shopify', 'Wix', 'Custom', 'Otros'],
+          datasets: [{
+            data: [12, 8, 5, 3, 2],
+            backgroundColor: [
+              '#6c757d',
+              '#6c757d',
+              '#6c757d', 
+              '#6c757d',
+              '#6c757d'
+            ],
+            borderWidth: 0,
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: {
+            x: {
+              beginAtZero: true,
+              grid: { display: false },
+              ticks: { display: false }
+            },
+            y: {
+              grid: { display: false }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    </script>
+  </body>
+
+</html>
